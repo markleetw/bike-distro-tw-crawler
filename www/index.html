@@ -51,6 +51,8 @@
           curStationId = null; 
           curInfowindow.close();
           curInfowindow = null;
+          curTimeIdx = null;
+          ajax.plotPrediction();
       }
     });
     
@@ -100,6 +102,7 @@
     ajax('plotPrediction');
     
     var curStationId;
+    var curTimeIdx;
     
     function updateMapInfo(fit){
       ajax.getPredictionByTimeIdx($("#slider").slider('value'),
@@ -126,22 +129,28 @@
                 google.maps.event.addListener(infowindow,'closeclick', function(){
                   curStationId = null; 
                   curInfowindow == null;
+                  curTimeIdx = null;
+                  ajax.plotPrediction();
                 });
-                if(curInfowindow != null){
-              		curInfowindow.setMap(null);
+                var timeIdx = $("#slider").slider('value');
+                if(curInfowindow == null || curStationId != id || curTimeIdx != timeIdx){
+                  if(curInfowindow != null){
+                    curInfowindow.close(); 
+                  }
+                  curInfowindow = infowindow;
+                  curStationId = id;
+                  curTimeIdx = timeIdx;
+                	curInfowindow.open(map, marker);
+                  ajax.plotPrediction({
+                    stationId: id,
+                    timeIdx: timeIdx
+                  }, function(){
+                    setTimeout(function(){
+                      $('#plot-placeholder').remove();
+                      $('#popup-plot').attr('src', $('#plot img').attr('src'));
+                    }, 50);
+                  });
             		}
-            		curInfowindow = infowindow;
-                curStationId = id;
-            		curInfowindow.open(map, marker);
-                ajax.plotPrediction({
-                  stationId: id,
-                  timeIdx: $("#slider").slider('value')
-                }, function(){
-                  setTimeout(function(){
-                    $('#plot-placeholder').remove();
-                    $('#popup-plot').attr('src', $('#plot img').attr('src'));
-                  }, 50);
-                });
             	});
               if(id == curStationId){
                 google.maps.event.trigger(marker, 'click')
