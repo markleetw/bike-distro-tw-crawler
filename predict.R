@@ -23,7 +23,7 @@ for(id in ids){
   #prediction
   pred = as.numeric(forecast(fit, h=frequency)$mean)
   header = xData[1,]
-  predictionByStationId[[as.character(id]] = list(
+  predictionByStationId[[as.character(id)]] = list(
     id=header$id,
     name=header$name,
     district=header$district,
