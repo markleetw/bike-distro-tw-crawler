@@ -1,13 +1,14 @@
-dataDirPath = '.'
-if(exists('totalData')){
+dataDirPath = './data'
+if (exists('totalData')) {
   remove(totalData)
 }
 library(stringr)
-for(file in list.files(dataDirPath, full.names = T, pattern = '^data-\\d{8}\\.rda$')){
+for (file in list.files(dataDirPath, full.names = T, 
+                        pattern = '^data-\\d{8}\\.rda$')) {
   load(file)
-  if(exists('totalData')){
+  if (exists('totalData')) {
     totalData = rbind(totalData, data)
-  }else{
+  } else {
     totalData = data;
   }
   remove(data)

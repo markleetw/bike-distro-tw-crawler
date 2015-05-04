@@ -1,18 +1,18 @@
 library(forecast)
 library('plyr')
 
-source('preprocess-data.R')
+source('script/preprocess-data.R')
 
 datePattern = '%Y%m%d'
 dataInWeekdays = data[data$time >= strptime('20141103', datePattern) 
-  & data$time < strptime('20141108', datePattern),]
+                      & data$time < strptime('20141108', datePattern),]
 
 ids = levels(data$id)
 ids = ids[ids != '0180']
 frequency = 60 * 24
 
 predictionByStationId = list()
-for(id in ids){  
+for (id in ids) {  
   print(id)
   #time series
   xData = dataInWeekdays[dataInWeekdays$id == id,]
@@ -33,4 +33,4 @@ for(id in ids){
     ratios=pred
   )
 }
-save(predictionByStationId, file='predictionByStationId.rda')
+save(predictionByStationId, file = 'data/predictionByStationId.rda')

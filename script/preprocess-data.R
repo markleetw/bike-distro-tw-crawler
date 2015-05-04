@@ -1,4 +1,4 @@
-load('data.rda')
+load('data/data.rda')
 data$total = as.integer(as.character(data$total))
 data$available = as.integer(as.character(data$available))
 data$empty = as.integer(as.character(data$empty))

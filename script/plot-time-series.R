@@ -1,4 +1,4 @@
-source('preprocess-data.R')
+source('script/preprocess-data.R')
 
 id = '0001'
 
@@ -18,13 +18,16 @@ colnames(fit$time.series)
 head(fit$time.series)
 length(fit$time.series)
 
-plot(data1$ratio[five_day_ind], type = 'l', ylim= c(-0.4, 1.25), xlim= c(0, ind_size))
+plot(data1$ratio[five_day_ind], type = 'l', ylim= c(-0.4, 1.25), 
+     xlim= c(0, ind_size))
 lines(fit$time.series[five_day_ind,1], col = 2)
 lines(fit$time.series[five_day_ind,2], col = 3)
 leg.txt = c('origin', 'seasonal', 'trends')
 legend(ind_size - frequency, 1.25, leg.txt, cex = 0.6, lty = 1, col = 1:3)
 
-plot(data1$ratio[five_day_ind], type = 'l', ylim= c(-0.1, 1.2), xlim= c(0, ind_size))
-lines(fit$time.series[five_day_ind,1] + fit$time.series[five_day_ind,2], col = 4)
+plot(data1$ratio[five_day_ind], type = 'l', ylim= c(-0.1, 1.2), 
+     xlim= c(0, ind_size))
+lines(fit$time.series[five_day_ind,1] + fit$time.series[five_day_ind,2], 
+      col = 4)
 leg.txt = c('origin', 'approx')
 legend(ind_size - frequency, 1.2, leg.txt, cex = 0.8, lty = 1, col = c(1, 4))
