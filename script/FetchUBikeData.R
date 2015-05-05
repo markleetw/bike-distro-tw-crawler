@@ -1,9 +1,14 @@
+# Ignore loading messages to avoid sending mail from linux crontab.
 suppressPackageStartupMessages(library(RCurl))
 suppressPackageStartupMessages(library(stringr))
 suppressPackageStartupMessages(library(rjson))
 
+# If use cmd "Rscript" to call this R file, the working directory will be
+# ".../UBikePrediciotn/scipt", which is incorrect, so add this to reset
+# working directory.
 setwd(gsub("script", "", getwd()))
 
+# There are only 4 cities have YouBike. 
 ubikeUrl <- "http://taipei.youbike.com.tw/cht/f12.php"
 location <- c("taipei", "ntpc", "taichung", "chcg")
 
