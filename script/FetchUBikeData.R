@@ -1,6 +1,8 @@
-library(RCurl)
-library(stringr)
-library(rjson)
+suppressPackageStartupMessages(library(RCurl))
+suppressPackageStartupMessages(library(stringr))
+suppressPackageStartupMessages(library(rjson))
+
+setwd(gsub("script", "", getwd()))
 
 ubikeUrl <- "http://taipei.youbike.com.tw/cht/f12.php"
 location <- c("taipei", "ntpc", "taichung", "chcg")
