@@ -23,7 +23,7 @@ for(loc in location) {
     colnames(newData) <- c('id', 'name', 'district', 'address', 'total', 
                            'available', 'empty', 'lat', 'lon', 'time', 'status', 
                            'available_img', 'empty_img')
-    dataPath = strftime(Sys.time(), paste('data/', loc, '/data-%Y%m%d.rda', 
+    dataPath = strftime(Sys.time(), paste('data/', loc, '/%Y%m%d.rda', 
                                           sep = ""))
     dir.create(file.path('data', loc), showWarnings = F)
     if (file.exists(dataPath)) {
