@@ -6,7 +6,7 @@ suppressPackageStartupMessages(library(XML))
 suppressPackageStartupMessages(library(plyr))
 
 # If use cmd "Rscript" to call this R file, the working directory will be
-# ".../UBikePrediciotn/scipt", which is incorrect, so add this to reset
+# ".../TaiwanBikePrediciotn/scipt", which is incorrect, so add this to reset
 # working directory.
 setwd(gsub("script", "", getwd()))
 

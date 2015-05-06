@@ -20,4 +20,4 @@
 # For more information see the manual pages of crontab(5) and cron(8)
 # 
 # m h  dom mon dow   command
-* * * * * cd /home/MarkLee/UBikePrediction/script && Rscript fetch-data.R
+* * * * * cd /home/MarkLee/TaiwanBikePrediction/script && Rscript FetchBikeData.R
