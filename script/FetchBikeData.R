@@ -6,8 +6,8 @@ suppressPackageStartupMessages(library(XML))
 suppressPackageStartupMessages(library(plyr))
 
 # If use cmd "Rscript" to call this R file, the working directory will be
-# ".../TaiwanBikePrediciotn/scipt", which is incorrect, so add this to reset
-# working directory.
+# ".../TaiwanCityBikePrediction/scipt", which is incorrect, so add this to
+# reset working directory.
 setwd(gsub("script", "", getwd()))
 
 # Youbike crawler
