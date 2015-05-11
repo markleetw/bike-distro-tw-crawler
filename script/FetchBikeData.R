@@ -18,7 +18,7 @@ location <- c("taipei", "ntpc", "taichung", "chcg")
 # The columns, "status", "available_img" and "empty_img", will be removed.
 colNames <- c('id', 'name', 'district', 'address', 'total', 
               'available', 'empty', 'lat', 'lon', 'time', 'status', 
-              'available_img', 'empty_img')
+              'available_img', 'empty_img', 'fetch_time')
 for(loc in location) {
     crawlUrl <- paste(ubikeUrl, "?loc=", loc, sep = "")
     htmlSource = getURL(crawlUrl, .encoding = 'utf-8')
@@ -27,15 +27,16 @@ for(loc in location) {
     jsonData = fromJSON(json)
     newData <- data.frame(matrix(unlist(jsonData), nrow = length(jsonData), 
                                  byrow = T))
+    newData <- cbind(newData, format(Sys.time(), "%Y%m%d%H%M%S"))
     colnames(newData) <- colNames
     dataPath = strftime(Sys.time(), paste('data/', loc, '/%Y%m%d.rda', 
                                           sep = ""))
     dir.create(file.path('data', loc), showWarnings = F)
     if (file.exists(dataPath)) {
         load(dataPath)  
-        data = rbind(data, newData[, 1:10])
+        data = rbind(data, newData[, c(1:10, 14)])
     } else {
-        data = newData[, 1:10]
+        data = newData[, c(1:10, 14)]
     }
     save(data, file = dataPath)
 }
@@ -52,7 +53,7 @@ testList <- xmlToList(xmlData)$BIKEStation
 tagNames <- c("StationID", "StationName", "StationAddress", "StationLat", 
               "StationLon", "StationNums1", "StationNums2")
 colNames <- c("id", "name", "address", "total", "available", "empty", "lat", 
-              "lon", "time")
+              "lon", "fetch_time")
 newData <- ldply(testList, 
                  function(x) { 
                      data.frame(x[tagNames], as.numeric(x["StationNums1"]) + 
