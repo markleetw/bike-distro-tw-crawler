@@ -1,8 +1,0 @@
-Youbike:
-    Taipei - 196
-    NTPC (New Taipei City) - 111
-    Taichung - 43
-    chcg (Changhua County Government) - 68
-
-Citybike:
-    kaohsiung - 158
