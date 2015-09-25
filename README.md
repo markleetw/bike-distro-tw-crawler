@@ -22,4 +22,4 @@ The purpose of [`/script/FetchData.R`](https://github.com/marksylee/TaiwanCityBi
     4. chcg (Changhua County Government): *68* stations
 
 * ####CityBike:
-    1. kaohsiung: *158* stations
+    1. kaohsiung: *159* stations (2015/09/25 Updated)
