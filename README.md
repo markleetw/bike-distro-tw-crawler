@@ -16,10 +16,10 @@ The purpose of [`/script/FetchData.R`](https://github.com/marksylee/TaiwanCityBi
 
 ###Data amount of per fetch cycle:
 * ####YouBike:
-    1. Taipei: *196* stations
-    2. NTPC (New Taipei City): *204* stations (2015/09/25 Updated)
-    3. Taichung: *58* stations (2015/09/25 Updated)
+    1. Taipei: *225* stations (2016/03/17 Updated)
+    2. NTPC (New Taipei City): *263* stations (2016/03/17 Updated)
+    3. Taichung: *150* stations (2016/03/17 Updated)
     4. chcg (Changhua County Government): *68* stations
 
 * ####CityBike:
-    1. kaohsiung: *159* stations (2015/09/25 Updated)
+    1. kaohsiung: *182* stations (2016/03/17 Updated)
