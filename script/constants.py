@@ -5,19 +5,34 @@ import pytz
 tz = pytz.timezone('Asia/Taipei')
 dt_format = "%Y%m%d%H%M%S"
 
+# id column name
+id_cn = "id"
+
+# fetch time column name
+ft_cn = "fetch_time"
+
+# total docks column name
+td_cn = "total_docks"
+
+# available bikes column name
+ab_cn = "available_bikes"
+
+# empty docks column name
+ed_cn = "empty_docks"
+
 # output column names
 output_columns = [
-                    "id",
+                    id_cn,
                     "name",
                     "area",
                     "address",
-                    "total_docks",
-                    "available_bikes",
-                    "empty_docks",
+                    td_cn,
+                    ab_cn,
+                    ed_cn,
                     "lat",
                     "lng",
                     "last_update_time",
-                    "fetch_time"
+                    ft_cn
                 ]
 
 # ubike column names

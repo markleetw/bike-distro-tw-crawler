@@ -17,3 +17,5 @@ df = pandas.DataFrame(columns=output_columns)
 
 for spider in spiders:
     df = df.append(spider.fetch(), ignore_index=True)
+
+df.to_csv("df.csv", sep="\t", encoding="utf-8")
