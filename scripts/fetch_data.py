@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # coding=utf-8
 from ubike import fetch_taipei as ubike_taipei
 from ubike import fetch_others as ubike_others

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # coding=utf-8
 import urllib
 import re
@@ -9,7 +10,7 @@ import constants as c
 # YouBike url
 ubike_url = "http://taipei.youbike.com.tw/cht/f12.php"
 ubike_city_param = "?loc="
-ubike_cities = ["ntpc", "taichung", "chcg", "tycg"]
+ubike_cities = ["ntpc", "taichung", "chcg", "tycg", "hccg"]
 
 def fetch():
     
